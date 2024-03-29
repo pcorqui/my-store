@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './product.model';
 
 @Component({
   selector: 'app-root',
@@ -49,4 +50,33 @@ export class AppComponent {
     const element = posicion;
     this.names.splice(posicion,1);
   }
+
+  products: Product[]=[
+    {
+      name: 'El mejor juguete',
+      price: 565,
+      image: './assets/images/juguete.jpg',
+      category: 'all',
+    },
+    {
+      name: 'Collecion de albumnes',
+      price: 34,
+      image: './assets/images/albunes.jpg'
+    },
+    {
+      name: 'Mis libros',
+      price: 23,
+      image: './assets/images/books.jpg'
+    },
+    {
+      name: 'Casa para perro',
+      price: 34,
+      image: './assets/images/house.jpg'
+    },
+    {
+      name: 'Gafas',
+      price: 3434,
+      image: './assets/images/glasses.jpg'
+    }
+  ]
 }
