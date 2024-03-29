@@ -19,6 +19,9 @@ export class AppComponent {
     img: "https://source.unsplash.com/random",
   }
 
+  names: string[] = ['nico','juli','santi'];
+  newName = "";
+
   //se crea metodo dentro de app component
   public toggleButton(){
     this.btnDisabled = !this.btnDisabled;
@@ -36,5 +39,14 @@ export class AppComponent {
   changeName(event: Event){
     const element = event.target as HTMLInputElement;
     this.persona.name = element.value;
+  }
+
+  addName(){
+    this.names.push(this.newName);
+  }
+
+  delete(posicion: number){
+    const element = posicion;
+    this.names.splice(posicion,1);
   }
 }
