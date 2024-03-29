@@ -1,3 +1,11 @@
+<h1>*ngIf</h1>
+<input type="text" required [(ngModel)]="persona.name"/>
+<p *ngIf="persona.name === 'nicolas'">nicolas</p>
+<p *ngIf="persona.name === 'paul' && persona.age == 18; else elseBlock" >paul</p>
+<ng-template #elseBlock>
+    <p>Bloque de else</p>
+</ng-template>
+
 <h1>NgModel</h1>
 <p>Esto es la misma implementacion que realiza el property binding y el eventBinding pero ahorrandonos la implementacion</p>
 <p >Nombre {{persona.name}}</p>
