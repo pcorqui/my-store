@@ -1,10 +1,21 @@
+<h1>NgModel</h1>
+<p>Esto es la misma implementacion que realiza el property binding y el eventBinding pero ahorrandonos la implementacion</p>
+<p >Nombre {{persona.name}}</p>
+<input type="text" #nameInput="ngModel" [(ngModel)]="persona.name">
+<p>Valid: {{nameInput.valid}}</p>
+
 <h1>Propiedades</h1>
 <button [disabled]="btnDisabled">Enviar</button>
 <button (click)="toggleButton()">Toggle button</button>
 <button (click)="increaseAge()">Age ++</button>
 <p>Edad {{persona.age}}</p>
 
-<input type=text [value]="persona.name"/>
+<div class="box" (scroll)="onScroll($event)">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde similique expedita aspernatur sequi voluptatibus fugit vitae sed amet! In, iure? Veritatis, vero. Similique, quam? Numquam illo nostrum officiis porro dolores?</p>
+</div>
+<hr/>
+<p>Name {{persona.name}}</p>
+<input type=text [value]="persona.name" (keyup)="changeName($event)"/>
 <progress max="100" [value]="persona.age"></progress>
 <img width="100" [src] ="persona.img" alt="" srcset="">
 <hr/>
