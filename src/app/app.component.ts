@@ -18,4 +18,13 @@ export class AppComponent {
     age: 18,
     img: "https://source.unsplash.com/random",
   }
+
+  //se crea metodo dentro de app component
+  public toggleButton(){
+    this.btnDisabled = !this.btnDisabled;
+  }
+
+  increaseAge(){
+    this.persona.age += 1; 
+  }
 }

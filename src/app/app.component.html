@@ -1,7 +1,11 @@
 <h1>Propiedades</h1>
 <button [disabled]="btnDisabled">Enviar</button>
+<button (click)="toggleButton()">Toggle button</button>
+<button (click)="increaseAge()">Age ++</button>
+<p>Edad {{persona.age}}</p>
+
 <input type=text [value]="persona.name"/>
-<progress max="100" value="persona.age"></progress>
+<progress max="100" [value]="persona.age"></progress>
 <img width="100" [src] ="persona.img" alt="" srcset="">
 <hr/>
 <h1>hola mundo</h1>
@@ -10,3 +14,4 @@
 <p>{{name}}</p>
 <p>{{edad}}</p>
 <img src={{imagen}} alt="image"/>
+
