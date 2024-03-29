@@ -8,11 +8,11 @@
 
 </div>
 <h1>*ngFor</h1>
-<div>
+<div class="products--grid">
     <div *ngFor="let product of products">
         <img width="250" [src]="product.image" alt="image">
         <h2>{{product.price}}</h2>
-        <p>{{product.price}}</p>
+        <p>{{product.name}}</p>
     </div>
 </div>
 <input type="text" [(ngModel)]="newName"/>
@@ -58,5 +58,5 @@
 <p> 3 - 3={{3 - 3}}</p>
 <p>{{name}}</p>
 <p>{{edad}}</p>
-<img src={{imagen}} alt="image"/>
+<img src={{imagen}} width="100" alt="image"/>
 
