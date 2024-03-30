@@ -4,3 +4,26 @@
     overflow: scroll;
     background: red;
 }
+
+.products--grid{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-gap: 15 px;
+}
+
+//Tablets
+@media screen and (min-width: 40em) {
+  .products--grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+  }
+}
+//Desktop
+  @media screen and (min-width: 62em) {
+    .products--grid{
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 15px;
+      }
+  }

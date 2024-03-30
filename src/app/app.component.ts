@@ -14,6 +14,12 @@ export class AppComponent {
   btnDisabled = false;
   img = "https://source.unsplash.com/random"
 
+  register = {
+    name: "",
+    email:"",
+    password:"",
+  }
+
   persona = {
     name: "paul",
     age: 18,
@@ -29,7 +35,7 @@ export class AppComponent {
   }
 
   increaseAge(){
-    this.persona.age += 1; 
+    this.persona.age += 1;
   }
 
   onScroll(event: Event){
@@ -79,4 +85,8 @@ export class AppComponent {
       image: './assets/images/glasses.jpg'
     }
   ]
+
+  public registrar(){
+    console.log(this.register);
+  }
 }
