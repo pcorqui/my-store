@@ -12,7 +12,9 @@ export class AppComponent {
   edad = 18;
   imagen = "https://source.unsplash.com/random";
   btnDisabled = false;
-  img = "https://source.unsplash.com/random"
+  img = "";
+
+  imgParent = "my-store";
 
   register = {
     name: "",
@@ -88,5 +90,10 @@ export class AppComponent {
 
   public registrar(){
     console.log(this.register);
+  }
+
+  onLoaded(img: string){
+    console.log('padre', img);
+    this.imgParent = img;
   }
 }
