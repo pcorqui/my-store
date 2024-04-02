@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, AfterViewInit, OnDestroy} from '@angular/core';
 
 
 @Component({
@@ -6,20 +6,41 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
   templateUrl: './img.component.html',
   styleUrls: ['./img.component.scss']
 })
-export class ImgComponent implements OnInit {
+export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy{
 
  @Input() imgInput: string= '';
  @Output() loaded = new EventEmitter();
 
   imgDefault = "https://www.m2crowd.com/core/i/placeholder.png";
-  constructor() { }
+  constructor() { 
+    console.log('constructor','imgValue =>', this.imgInput);
+  }
+  
+  ngOnChanges(): void {
+      //before render
+      //changes inputs -- times
+      console.log('ngOnChanges', "imgValue =>", this.imgInput)
+  }
 
   ngOnInit(): void {
+
+    //before render
+    //async - fetch -- once time
+    console.log('ngOnInit','imgValue =>', this.imgInput);
+  }
+
+  ngAfterViewInit(): void {
+      //after render
+      //hadler childred, cuando se hayan cardado en el dom
+  }
+
+  ngOnDestroy(): void {
+      //delete
+      console.log('ngOnDestroy');
   }
 
   //este es mandado a llamar por el html cuando hay un error
   //(error) para indicar que algo fallo
-  
   imgError(){
     console.log("cargada imagen vacia")
     this.imgInput = this.imgDefault;
