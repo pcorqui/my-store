@@ -10,8 +10,11 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
 
  @Input() imgInput: string= '';
  @Output() loaded = new EventEmitter();
+ counter = 0;
 
   imgDefault = "https://www.m2crowd.com/core/i/placeholder.png";
+
+
   constructor() { 
     console.log('constructor','imgValue =>', this.imgInput);
   }
@@ -20,6 +23,12 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
       //before render
       //changes inputs -- times
       console.log('ngOnChanges', "imgValue =>", this.imgInput)
+      window.setInterval(
+        () => {
+          this.counter += 1;
+          console.log('run counter');
+        },1000
+      );
   }
 
   ngOnInit(): void {
