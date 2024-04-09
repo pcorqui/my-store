@@ -1,6 +1,10 @@
+
 <p><input type="text" [(ngModel)]="imgParent"></p>
+<p>total: {{ totalCarrito}}</p>
+<app-nav-bar></app-nav-bar>
+<p>{{cantidadProductos}}</p>
 <app-img (loaded)="onLoaded($event)" [imgInput]="imgParent"></app-img>
 <div *ngFor="let product of products">
-    <app-product [product]="product" ></app-product>
+    <app-product [product]="product" (addedProduct) = "addedProductPadre($event)"></app-product>
 </div>
 

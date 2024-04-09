@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from './components/models/product.model';
+import { StoreService } from './services/store.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,13 @@ import { Product } from './components/models/product.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  cantidadProductos: number = 0;
+  totalCarrito: number = 0;
+
+  constructor(private stockService: StoreService){
+
+  }
  
   imgParent = '';
   products: Product[] = [
@@ -46,5 +54,13 @@ export class AppComponent {
   onLoaded(img: string){
     console.log('padre', img);
     this.imgParent = img;
+  }
+
+  addedProductPadre(product : Product){
+    //aqui deberia haber un objeto products manipulado por service
+    console.log(product);
+    this.products.push(product);
+    this.cantidadProductos = this.stockService.cantidadProducts(this.products);
+    this.totalCarrito += product.price;
   }
 }
