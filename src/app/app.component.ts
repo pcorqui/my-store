@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from './components/models/product.model';
 import { StoreService } from './services/store.service';
 
@@ -7,7 +7,7 @@ import { StoreService } from './services/store.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   cantidadProductos: number = 0;
   totalCarrito: number = 0;
@@ -51,6 +51,17 @@ export class AppComponent {
   
   ];
 
+  nuevosProductos = this.stockService.getStock();
+
+  ngOnInit(): void{
+    this.stockService.myCart$
+    .subscribe(data => {
+      // Cada vez que el observable emita un valor, se ejecutará este código
+      console.log(data);
+      console.log('algo emite');
+    });
+  }
+
   onLoaded(img: string){
     console.log('padre', img);
     this.imgParent = img;
@@ -59,8 +70,14 @@ export class AppComponent {
   addedProductPadre(product : Product){
     //aqui deberia haber un objeto products manipulado por service
     console.log(product);
-    this.products.push(product);
+    console.log("se sigue emitiendo");
+    this.nuevosProductos.push(product);
     this.cantidadProductos = this.stockService.cantidadProducts(this.products);
     this.totalCarrito += product.price;
+  }
+
+  AddObservable(product : Product){
+    console.log("observable" + product);
+    this.nuevosProductos.push(product);
   }
 }
