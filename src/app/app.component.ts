@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from './components/models/product.model';
+import { Product, ProductApi } from './components/models/product.model';
 import { StoreService } from './services/store.service';
+import { ProductServiceService } from './services/product-service.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +14,14 @@ export class AppComponent implements OnInit{
   cantidadProductos: number = 0;
   totalCarrito: number = 0;
 
-  constructor(private stockService: StoreService){
+  constructor(
+    private stockService: StoreService,
+    private productService: ProductServiceService){
 
   }
- 
+
   imgParent = '';
+  productsapi: ProductApi[] = [];
   products: Product[] = [
       {
         id: '1',
@@ -48,7 +53,7 @@ export class AppComponent implements OnInit{
         price: 3434,
         image: './assets/images/glasses.jpg'
       }
-  
+
   ];
 
   nuevosProductos = this.stockService.getStock();
@@ -60,6 +65,10 @@ export class AppComponent implements OnInit{
       console.log(data);
       console.log('algo emite');
     });
+
+    this.productService.getAllProduct().subscribe(
+      data => { console.log( data)}
+     );
   }
 
   onLoaded(img: string){
@@ -79,5 +88,12 @@ export class AppComponent implements OnInit{
   AddObservable(product : Product){
     console.log("observable" + product);
     this.nuevosProductos.push(product);
+  }
+
+  public callApi(){
+     this.productService.getAllProduct().subscribe(
+      data => { this.productsapi = data}
+     );
+
   }
 }

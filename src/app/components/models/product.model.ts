@@ -4,3 +4,12 @@ export interface Product{
     price: number;
     image: string;
 }
+
+export interface ProductApi{
+  id: string;
+  title: string;
+  price: number;
+  category: string;
+  description: string;
+  image: string;
+}
