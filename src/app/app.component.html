@@ -1,8 +1,14 @@
 
-<p><input type="text" [(ngModel)]="imgParent"></p>
 <app-nav-bar></app-nav-bar>
-<app-img (loaded)="onLoaded($event)" [imgInput]="imgParent"></app-img>
-<div *ngFor="let product of products">
-    <app-product [product]="product" (addedProduct) = "addedProductPadre($event)"></app-product>
+<div *ngFor="let productApi of products">
+    <app-product [product]="productApi" (addedProduct) = "addedProductPadre($event)" (showDetails)="onShowProductDetails($event)"></app-product>
 </div>
-
+<div>
+  <button (click)="toggleProductDetails()">modal</button>
+</div>
+<div [class.active]='showProductDetails' class="product-detail" >
+  <div>
+    <button (click)="toggleProductDetails()">Close</button>
+    Contenido
+  </div>
+</div>

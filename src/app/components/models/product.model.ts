@@ -6,7 +6,7 @@ export interface Product{
 }
 
 export interface ProductApi{
-  id: string;
+  id: number;
   title: string;
   price: number;
   category: string;

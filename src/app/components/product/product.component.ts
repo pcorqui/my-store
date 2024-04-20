@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Product } from '../models/product.model';
+import { Product, ProductApi } from '../models/product.model';
 import { StoreService } from '../../services/store.service';
 
 @Component({
@@ -17,6 +17,8 @@ export class ProductComponent implements OnInit {
   };
 
   @Output() addedProduct = new EventEmitter<Product>();
+  @Output() showDetails = new EventEmitter<string>();
+
 
   constructor(private storeService : StoreService) { }
 
@@ -25,8 +27,12 @@ export class ProductComponent implements OnInit {
 
   public addCar(){
     console.log("objeto agregado");
-    //this.addedProduct.emit(this.product);
+    this.addedProduct.emit(this.product);
     this.storeService.addProducts(this.product);
   }
 
+  public onShowDetail(){
+    this.showDetails.emit(this.product.id);
+
+  }
 }

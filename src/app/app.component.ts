@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit{
 
+  public showProductDetails = false;
+
   cantidadProductos: number = 0;
   totalCarrito: number = 0;
 
@@ -22,53 +24,55 @@ export class AppComponent implements OnInit{
 
   imgParent = '';
   productsapi: ProductApi[] = [];
-  products: Product[] = [
-      {
-        id: '1',
-        name: 'El mejor juguete',
-        price: 565,
-        image: './assets/images/juguete.jpg',
-      },
-      {
-        id: '2',
-        name: 'Collecion de albumnes',
-        price: 34,
-        image: './assets/images/albunes.jpg'
-      },
-      {
-        id: '3',
-        name: 'Mis libros',
-        price: 23,
-        image: './assets/images/books.jpg'
-      },
-      {
-        id: '4',
-        name: 'Casa para perro',
-        price: 34,
-        image: './assets/images/house.jpg'
-      },
-      {
-        id: '5',
-        name: 'Gafas',
-        price: 3434,
-        image: './assets/images/glasses.jpg'
-      }
+  products: Product[] = [];
+      // {
+      //   id: '1',
+      //   name: 'El mejor juguete',
+      //   price: 565,
+      //   image: './assets/images/juguete.jpg',
+      // },
+      // {
+      //   id: '2',
+      //   name: 'Collecion de albumnes',
+      //   price: 34,
+      //   image: './assets/images/albunes.jpg'
+      // },
+      // {
+      //   id: '3',
+      //   name: 'Mis libros',
+      //   price: 23,
+      //   image: './assets/images/books.jpg'
+      // },
+      // {
+      //   id: '4',
+      //   name: 'Casa para perro',
+      //   price: 34,
+      //   image: './assets/images/house.jpg'
+      // },
+      // {
+      //   id: '5',
+      //   name: 'Gafas',
+      //   price: 3434,
+      //   image: './assets/images/glasses.jpg'
+      // }
 
-  ];
+  //];
 
   nuevosProductos = this.stockService.getStock();
 
-  ngOnInit(): void{
-    this.stockService.myCart$
-    .subscribe(data => {
-      // Cada vez que el observable emita un valor, se ejecutará este código
-      console.log(data);
-      console.log('algo emite');
-    });
-
+  ngOnInit(){
+    this.productsapi = [];
     this.productService.getAllProduct().subscribe(
-      data => { console.log( data)}
+      data => { this.products = data;
+                console.log('la data' + data)}
      );
+
+    // this.stockService.myCart$
+    // .subscribe(data => {
+    //   // Cada vez que el observable emita un valor, se ejecutará este código
+    //   console.log(data);
+    //   console.log('algo emite');
+    // });
   }
 
   onLoaded(img: string){
@@ -90,10 +94,11 @@ export class AppComponent implements OnInit{
     this.nuevosProductos.push(product);
   }
 
-  public callApi(){
-     this.productService.getAllProduct().subscribe(
-      data => { this.productsapi = data}
-     );
+  toggleProductDetails(){
+    this.showProductDetails = !this.showProductDetails;
+  }
 
+  onShowProductDetails(id: String){
+    console.log('el producto: ' + id);
   }
 }
