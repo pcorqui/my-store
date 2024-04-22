@@ -3,6 +3,8 @@ export interface Product{
     name: string;
     price: number;
     image: string;
+    title: string;
+    descripcion: string;
 }
 
 export interface ProductApi{
@@ -13,3 +15,10 @@ export interface ProductApi{
   description: string;
   image: string;
 }
+
+export interface ProductDTO extends Omit<Product, 'id' | 'category'> {
+  categoryId: number;
+}
+
+//partial vuelve opcionales los campos de PrroductDTO
+export interface ProductDTOUpdate extends Partial<ProductDTO>{ }

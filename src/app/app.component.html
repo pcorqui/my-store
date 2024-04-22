@@ -1,4 +1,4 @@
-
+<button (click)="createNewProduct()">nuevo</button>
 <app-nav-bar></app-nav-bar>
 <div *ngFor="let productApi of products">
     <app-product [product]="productApi" (addedProduct) = "addedProductPadre($event)" (showDetails)="onShowProductDetails($event)"></app-product>
@@ -9,6 +9,11 @@
 <div [class.active]='showProductDetails' class="product-detail" >
   <div>
     <button (click)="toggleProductDetails()">Close</button>
-    Contenido
+    <h1>{{productChosen.title}}</h1>
+    <img class="img" [src]="productChosen.image" alt="">
+    <swiper [slidesPerView]="1"></swiper>
+    <p>{{productChosen.descripcion}}</p>
+    <button (click)="updateProduct()">editar</button>
+    <button (click)="deleteProduct()">delete</button>
   </div>
 </div>

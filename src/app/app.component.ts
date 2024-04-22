@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, ProductApi } from './components/models/product.model';
+import { Product, ProductApi, ProductDTO, ProductDTOUpdate } from './components/models/product.model';
 import { StoreService } from './services/store.service';
 import { ProductServiceService } from './services/product-service.service';
 import { Observable } from 'rxjs';
@@ -23,6 +23,15 @@ export class AppComponent implements OnInit{
   }
 
   imgParent = '';
+  productChosen: Product = {
+    id: "",
+    name: "",
+    price: 0.0,
+    image: "",
+    title: "",
+    descripcion: ""
+
+  }
   productsapi: ProductApi[] = [];
   products: Product[] = [];
       // {
@@ -55,14 +64,13 @@ export class AppComponent implements OnInit{
       //   price: 3434,
       //   image: './assets/images/glasses.jpg'
       // }
-
   //];
 
   nuevosProductos = this.stockService.getStock();
 
   ngOnInit(){
     this.productsapi = [];
-    this.productService.getAllProduct().subscribe(
+    this.productService.getProductsByPage(10,5).subscribe(
       data => { this.products = data;
                 console.log('la data' + data)}
      );
@@ -98,7 +106,53 @@ export class AppComponent implements OnInit{
     this.showProductDetails = !this.showProductDetails;
   }
 
-  onShowProductDetails(id: String){
+  onShowProductDetails(id: string){
+
     console.log('el producto: ' + id);
+    this.productService.getProductInfo(id).subscribe(
+      data => {console.log(data);
+      this.toggleProductDetails();
+      this.productChosen = data;}
+    );
   }
+
+  createNewProduct(){
+    const productDTO : ProductDTO = {
+      title: "nuevo Producto",
+      descripcion: "",
+      image: "",
+      price: 0.0,
+      name: "",
+      categoryId: 0
+    }
+
+    this.productService.create(productDTO)
+    .subscribe(
+      data => {console.log(data)}
+    )
+  }
+
+    updateProduct(){
+        const changes: ProductDTOUpdate = {
+          title: 'change title',
+        }
+
+        const id = this.productChosen.id;
+        this.productService.update(id,changes).subscribe(
+          data => {console.log('update', data)}
+        )
+      }
+
+      deleteProduct(){
+        const id = this.productChosen.id;
+        console.log("product_choosen: " + id)
+        this.productService.delete(id).subscribe(
+          data => {
+            console.log("elemento: "+this.products.findIndex(index => index.id == id));
+            //quitamos el producto de products para no rehacer otra peticion al server.
+            this.products.splice(this.products.findIndex(product => product.id == id),1);
+            this.showProductDetails = false;
+          }
+        );
+      }
 }
