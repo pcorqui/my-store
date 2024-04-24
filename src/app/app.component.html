@@ -1,4 +1,5 @@
 <button (click)="createNewProduct()">nuevo</button>
+<app-create-product></app-create-product>
 <app-nav-bar></app-nav-bar>
 <div *ngFor="let productApi of products">
     <app-product [product]="productApi" (addedProduct) = "addedProductPadre($event)" (showDetails)="onShowProductDetails($event)"></app-product>

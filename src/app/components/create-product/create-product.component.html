@@ -1,0 +1,35 @@
+<h2>create-product-form</h2>
+<div class="form-group">
+  <form (ngSubmit)="createProduct()">
+    <div class="stock-name">
+      <input type="text" name="productName" [(ngModel)]='product.name'
+        placeholder="stock-name"
+        [value] = "product.name"
+        >
+    </div>
+    <div class="stock-code">
+      <input type="text" placeholder="code Product" name="productCode" [(ngModel)]="product.id">
+    </div>
+    <div class="stock-code">
+      <input type="text" placeholder="code Product" name="productPrice" [(ngModel)]="product.price">
+    </div>
+    <div class="stock-exchange">
+      <div>
+        <input type="radio" name="stockExchange" [(ngModel)]="product.descripcion" value="NYSE">NYSE
+      </div>
+      <div>
+        <input type="radio" name="stockExchange" [(ngModel)]="product.descripcion" value="NASDAQ">NASDAQ
+      </div>
+      <div>
+        <input type="radio" name="stockExchange" [(ngModel)]="product.descripcion" value="OTHER">OTHER
+      </div>
+      <div class="stock-confirm">
+        <input type="checkbox" name="stockConfirm" [(ngModel)]="confirmed">
+        I confirm that the information provided above is accurate!
+      </div>
+    </div>
+  </form>
+  <button [disabled]="!confirmed"> guardar</button>
+</div>
+
+<h4>Product name is {{product | json }}</h4>
