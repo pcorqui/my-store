@@ -8,7 +8,9 @@ import { AppComponent } from './app.component';
 import { ImgComponent } from './components/img/img.component';
 import { ProductComponent } from './components/product/product.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { SwiperModule } from 'swiper/angular'; //version 8.4.6 versiones posteriores no tienen soporte
+import { SwiperModule } from 'swiper/angular';
+import { CreateProductComponent } from './components/create-product/create-product.component';
+import { AppRoutesModule } from './app-routes.module'; //version 8.4.6 versiones posteriores no tienen soporte
 
 
 
@@ -18,13 +20,15 @@ import { SwiperModule } from 'swiper/angular'; //version 8.4.6 versiones posteri
     ImgComponent,
     ProductComponent,
     NavBarComponent,
+    CreateProductComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    SwiperModule
+    SwiperModule,
+    AppRoutesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
