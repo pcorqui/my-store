@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Product, ProductApi, ProductDTO } from '../components/models/product.model';
-import { url } from 'inspector';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductServiceService {
 
-  private api : string = "https://fakestoreapi.com/products"
+  private api : string = environment.API_URL + "products"
 
   constructor(
     private http: HttpClient
