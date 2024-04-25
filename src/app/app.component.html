@@ -1,5 +1,11 @@
 <button (click)="createNewProduct()">nuevo</button>
-<app-create-product></app-create-product>
+<div>
+  <span><a href="/create">create product</a></span>
+  <span><a href="/list">Listar product</a></span>
+  <span><a href="/noFound">no encontrado</a></span>
+  <span><a href="/create">create product</a></span>
+</div>
+<router-outlet></router-outlet>
 <app-nav-bar></app-nav-bar>
 <div *ngFor="let productApi of products">
     <app-product [product]="productApi" (addedProduct) = "addedProductPadre($event)" (showDetails)="onShowProductDetails($event)"></app-product>
