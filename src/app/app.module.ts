@@ -11,7 +11,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SwiperModule } from 'swiper/angular';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { AppRoutesModule } from './app-routes.module';
-import { NoFoundComponent } from './components/no-found/no-found.component'; //version 8.4.6 versiones posteriores no tienen soporte
+import { NoFoundComponent } from './components/no-found/no-found.component';
+import { AboutUsComponent } from './components/about-us/about-us.component'; //version 8.4.6 versiones posteriores no tienen soporte
 
 
 
@@ -23,6 +24,7 @@ import { NoFoundComponent } from './components/no-found/no-found.component'; //v
     NavBarComponent,
     CreateProductComponent,
     NoFoundComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
