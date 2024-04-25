@@ -12,7 +12,8 @@ import { SwiperModule } from 'swiper/angular';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { AppRoutesModule } from './app-routes.module';
 import { NoFoundComponent } from './components/no-found/no-found.component';
-import { AboutUsComponent } from './components/about-us/about-us.component'; //version 8.4.6 versiones posteriores no tienen soporte
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ListProductsComponent } from './components/list-products/list-products.component'; //version 8.4.6 versiones posteriores no tienen soporte
 
 
 
@@ -25,6 +26,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component'; //v
     CreateProductComponent,
     NoFoundComponent,
     AboutUsComponent,
+    ListProductsComponent,
   ],
   imports: [
     BrowserModule,
