@@ -1,26 +1,10 @@
-<button (click)="createNewProduct()">nuevo</button>
-<div>
+
+<div class="links">
   <span><a routerLink="/create" routerLinkActive="active">create product</a></span>
-  <span><a routerLink="/list" routerLinkActive="active">Listar product</a></span>
+  <span><a routerLink="/list-products" routerLinkActive="active">Listar product</a></span>
   <span><a routerLink="/noFound" routerLinkActive="active">no encontrado</a></span>
-  <span><a routerLink="/create" routerLinkActive="active">create product</a></span>
+  <span><a routerLink="/about us" routerLinkActive="active">about us</a></span>
 </div>
 <router-outlet></router-outlet>
 <app-nav-bar></app-nav-bar>
-<div *ngFor="let productApi of products">
-    <app-product [product]="productApi" (addedProduct) = "addedProductPadre($event)" (showDetails)="onShowProductDetails($event)"></app-product>
-</div>
-<div>
-  <button (click)="toggleProductDetails()">modal</button>
-</div>
-<div [class.active]='showProductDetails' class="product-detail" >
-  <div>
-    <button (click)="toggleProductDetails()">Close</button>
-    <h1>{{productChosen.title}}</h1>
-    <img class="img" [src]="productChosen.image" alt="">
-    <swiper [slidesPerView]="1"></swiper>
-    <p>{{productChosen.descripcion}}</p>
-    <button (click)="updateProduct()">editar</button>
-    <button (click)="deleteProduct()">delete</button>
-  </div>
-</div>
+lore
