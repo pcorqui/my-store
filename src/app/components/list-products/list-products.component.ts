@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductServiceService } from 'src/app/services/product-service.service';
 import { StoreService } from 'src/app/services/store.service';
 import { Product, ProductApi, ProductDTO, ProductDTOUpdate } from '../models/product.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-products',
@@ -17,7 +18,8 @@ export class ListProductsComponent implements OnInit {
 
   constructor(
     private stockService: StoreService,
-    private productService: ProductServiceService){
+    private productService: ProductServiceService,
+    private router: Router){
 
   }
 
@@ -153,5 +155,9 @@ export class ListProductsComponent implements OnInit {
             this.showProductDetails = false;
           }
         );
+      }
+
+      showDetail(){
+        this.router.navigate(['list-products'])
       }
 }
