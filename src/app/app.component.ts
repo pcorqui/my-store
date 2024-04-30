@@ -51,7 +51,7 @@ export class AppComponent implements OnInit{
   
   ];
 
-  nuevosProductos = this.stockService.getStock();
+  //nuevosProductos = this.stockService.getStock();
 
   ngOnInit(): void{
     this.stockService.myCart$
@@ -71,13 +71,13 @@ export class AppComponent implements OnInit{
     //aqui deberia haber un objeto products manipulado por service
     console.log(product);
     console.log("se sigue emitiendo");
-    this.nuevosProductos.push(product);
+    //this.nuevosProductos.push(product);
     this.cantidadProductos = this.stockService.cantidadProducts(this.products);
     this.totalCarrito += product.price;
   }
 
   AddObservable(product : Product){
     console.log("observable" + product);
-    this.nuevosProductos.push(product);
+    //this.nuevosProductos.push(product);
   }
 }

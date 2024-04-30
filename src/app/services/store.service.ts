@@ -10,6 +10,10 @@ export class StoreService {
 
   //declarando un objeto reactivo
   private myCart = new BehaviorSubject<Product[]>([]);
+
+  //este objeto sera al que se deben suscribir para recibir actualizaciones los componentes
+  //cree dos uno en producto component y otro en navcomponent
+  //pero al ser injeccion de dependencias solo se crea un objeto de esta clase
   public myCart$ = this.myCart.asObservable();
 
   private stock!: Product[];
@@ -31,7 +35,4 @@ export class StoreService {
     this.myCart.next(this.stock);
   }
 
-  // totalCarrito(product : Product[]) : number {
-  //   return product
-  // }
 }

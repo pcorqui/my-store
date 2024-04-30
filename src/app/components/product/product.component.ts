@@ -18,6 +18,8 @@ export class ProductComponent implements OnInit {
 
   @Output() addedProduct = new EventEmitter<Product>();
 
+  showProductDetail = false;
+
   constructor(private storeService : StoreService) { }
 
   ngOnInit(): void {
@@ -27,6 +29,10 @@ export class ProductComponent implements OnInit {
     console.log("objeto agregado");
     //this.addedProduct.emit(this.product);
     this.storeService.addProducts(this.product);
+  }
+
+  toggleProductDetail(){
+    this.showProductDetail = !this.showProductDetail;
   }
 
 }

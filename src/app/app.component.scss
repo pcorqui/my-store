@@ -38,3 +38,20 @@
         opacity: 1;
     }
 }
+
+.product-detail{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    bottom: 0;
+    right: 0;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: all ease-out .5s;
+    transform: tranlateX(100%);
+    &.active {
+        transform: translateX(0);
+    } 
+}
