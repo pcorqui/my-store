@@ -13,7 +13,8 @@ import { CreateProductComponent } from './components/create-product/create-produ
 import { AppRoutesModule } from './app-routes.module';
 import { NoFoundComponent } from './components/no-found/no-found.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
-import { ListProductsComponent } from './components/list-products/list-products.component'; //version 8.4.6 versiones posteriores no tienen soporte
+import { ListProductsComponent } from './components/list-products/list-products.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component'; //version 8.4.6 versiones posteriores no tienen soporte
 
 
 
@@ -27,6 +28,7 @@ import { ListProductsComponent } from './components/list-products/list-products.
     NoFoundComponent,
     AboutUsComponent,
     ListProductsComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,

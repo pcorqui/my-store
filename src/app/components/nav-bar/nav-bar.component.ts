@@ -20,5 +20,4 @@ export class NavBarComponent implements OnInit {
       data => {console.log('esto es la data' + data);}
     );
   }
-
 }
