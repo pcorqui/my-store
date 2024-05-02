@@ -1,5 +1,17 @@
-<ul>
-    <li>Home</li>
-    <li><p>{{cantidadProductos}}</p></li>
-    <li><p>total: {{ totalCarrito}}</p></li>
-</ul>
+<nav class="div-horizontal">
+    <div>
+        <img src="./assets/images/OIG1.jpg" alt="logo">
+    </div>
+    <div>
+        <ul>
+            <li><a [routerLink]="['/home']" routerLinkActive="router-link-active">Home</a></li>
+            <li><a routerLink="list" routerLinkActive="router-link-active">list</a></li>
+            <li><a [routerLink]="['/aboutus']" routerLinkActive="router-link-active">about us</a></li>    
+        </ul>
+    </div>
+    <div>
+        <p>{{cantidadProductos}}</p>
+        <p>total: {{ totalCarrito}}</p>
+    </div>
+</nav>
+<router-outlet></router-outlet>
